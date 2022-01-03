@@ -1,0 +1,20 @@
+header {
+    text-align: center;
+    font-size: 5vmin;
+}
+
+.card {
+    background-color: black;
+    height: 150px;
+    width: 100px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(6, 10vmin);
+    gap: 7vmin;
+    margin-top: 7vmin;
+    justify-content: center;
+    
+   
+}
