@@ -30,7 +30,7 @@
     color: gold;
     font-size: 50px;
     margin-top: 0;
-    margin-bottom: -3vmin;
+    margin-bottom: -4vmin;
   }
 
   h2 {
@@ -39,3 +39,19 @@
     margin-bottom: -3vmin;
   }
 
+  button {
+    color: gold;
+    font-family: 'Anton', sans-serif;
+    margin-top: 4vmin;
+    padding: 2vmin;
+    font-size: 2vmin;
+    border-radius: 4vmin;
+    background-color: darkred;
+  }
+  
+  button:hover {
+    background-color: darkgrey;
+    color: white;
+  }
+
+  
