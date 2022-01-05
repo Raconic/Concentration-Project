@@ -22,9 +22,11 @@ const SOURCE_CARDS = [
   /*----- cached element references -----*/
   const cardImgEls = document.querySelectorAll('main > img');
   const badCountEl = document.querySelector('h3');
-  
+  const btnEl = document.querySelector('button');
   /*----- event listeners -----*/
   document.querySelector('main').addEventListener('click', handleChoice);
+  btnEl.addEventListener('click', init);
+  
   
   /*----- functions -----*/
   init();
@@ -83,6 +85,7 @@ const SOURCE_CARDS = [
   }
   //Render Function//
   function render() {
+    btnEl.style.visibility = winner ? 'visible' : 'hidden';
     cards.forEach(function(card, idx) {
       const src = card.matched || selectedCard === card ? card.img : CARD_BACK; 
       cardImgEls[idx].src = src;
