@@ -43,14 +43,14 @@ const SOURCE_CARDS = [
     badGuessCount = 0;
     ignoreClick = false;
     winner = false;
-    render();
+    render(); 
   }
   // Timer Function //
   function updateCountdown() {
     const minutes = Math.floor(time / 60);
     let seconds = time % 60;
-    seconds = seconds < 1 ? '' + seconds : seconds;
-    countdownEl.innerHTML = `${minutes}: ${seconds}`;
+    seconds = seconds < 1 ? '0' + seconds : seconds;
+    countdownEl.innerHTML = `${seconds}`;
     time--;
     time = time < 0 ? 0 : time; 
 
