@@ -3,6 +3,7 @@
   }
   
   body {
+    font-family: 'Anton', sans-serif;
     height: 100vmin;
     display: flex;
     flex-direction: column;
@@ -25,5 +26,14 @@
     border-radius: 3vmin;
   }
 
-  
+  header {
+    font-size: 50px;
+    margin-top: 0;
+    margin-bottom: -3vmin;
+  }
+
+  h2 {
+    margin-top: 4vmin;
+    margin-bottom: -3vmin;
+  }
 
