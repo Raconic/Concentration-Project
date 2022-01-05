@@ -11,7 +11,7 @@ const SOURCE_CARDS = [
   ];
   const CARD_BACK = 'https://i.imgur.com/5OgVgAe.png'; 
   const DISPLAY_CARD_TIME = 1000;
-  let startingMinutes = .75;
+  let startingMinutes = .25;
   
   
   /*----- app's state (variables) -----*/
@@ -21,6 +21,8 @@ const SOURCE_CARDS = [
   let ignoreClick;
   let winner;
   let time;
+  let seconds;
+  let loser;
   
   
   /*----- cached element references -----*/
@@ -28,7 +30,7 @@ const SOURCE_CARDS = [
   const badCountEl = document.querySelector('h3');
   const btnEl = document.querySelector('button');
   const countdownEl = document.getElementById('time-remaining');
-  setInterval(updateCountdown, 1500);
+  
   /*----- event listeners -----*/
   document.querySelector('main').addEventListener('click', handleChoice);
   btnEl.addEventListener('click', init);
@@ -44,17 +46,46 @@ const SOURCE_CARDS = [
     badGuessCount = 0;
     ignoreClick = false;
     winner = false;
+    loser = false;
     time = startingMinutes * 60;
     render(); 
   }
   // Timer Function //
-  function updateCountdown() {
-    const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-    seconds = seconds < 1 ? '0' + seconds : seconds;
-    countdownEl.innerHTML = `${seconds}`;
-    time--;
-    time = time < 0 ? 0 : time; 
+//   function updateCountdown() {
+    // seconds = time % 60;
+    // seconds = seconds <= 1 ? '0' + seconds : seconds;
+    // countdownEl.innerHTML = `${seconds}`;
+    //  time--;
+    // if (seconds === '00' && !cards.every(card => card.matched)) loser = true;
+    // setTimeout( checkLoser , 4600);
+    // }
+    function updateCountdown() {
+        // let count = 3;
+        // countdownEl.textContent = time;
+        // countdownEl.style.visibility = 'visible';
+        // countdownAudio.currentTime = 0;
+        // countdownAudio.play();
+        const timerId = setInterval(function () {
+            seconds = time % 60;
+            
+            // seconds = seconds <= 1 ? '0' + seconds : seconds;
+            countdownEl.innerHTML = `${seconds}`;
+            time--;
+            // if (time = time < 0 ? 0 : time);
+            setTimeout( checkLoser , 1400);
+    if (time <= 0) {
+        // clearInterval(timerId);
+    countdownEl.innerHTML = '0';
+    // cb();
+  } 
+  
+}, 1000);
+ }
+  
+  function checkLoser() {
+    
+    loser = time === 0 && !cards.every(card => card.matched);
+   if (loser) badCountEl.innerHTML = `KABOOM!!!`; 
   }
   
 
@@ -109,9 +140,11 @@ const SOURCE_CARDS = [
       const src = card.matched || selectedCard === card ? card.img : CARD_BACK; 
       cardImgEls[idx].src = src;
     });
+    badCountEl.innerHTML = `MOVES: ${badGuessCount}`;
+  
     if (winner) {
       badCountEl.innerHTML = 'YOU SAVED US!!!!';
-    } else {
-      badCountEl.innerHTML = `MOVES: ${badGuessCount}`;
-    }
+    } 
+    
+    
   }
