@@ -79,7 +79,7 @@ const SOURCE_CARDS = [
     // cb();
   } 
   
-});
+}, 1000);
  }
   
   function checkLoser() {
