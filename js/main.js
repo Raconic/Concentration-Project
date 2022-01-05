@@ -68,18 +68,18 @@ const SOURCE_CARDS = [
         const timerId = setInterval(function () {
             seconds = time % 60;
             
-            // seconds = seconds <= 1 ? '0' + seconds : seconds;
+            //seconds = seconds <= 1 ? '0' + seconds : seconds;
             countdownEl.innerHTML = `${seconds}`;
             time--;
             // if (time = time < 0 ? 0 : time);
-            setTimeout( checkLoser , 1400);
-    if (time <= 0) {
+            setTimeout( checkLoser , 1600);
+    if (time < 0) {
         // clearInterval(timerId);
     countdownEl.innerHTML = '0';
     // cb();
   } 
   
-}, 1000);
+});
  }
   
   function checkLoser() {
