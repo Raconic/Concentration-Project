@@ -28,7 +28,7 @@ const SOURCE_CARDS = [
   
   /*----- functions -----*/
   init();
-  
+  // Initialize Function //
   function init() {
     buildShuffledCards();
     selectedCard = null;
@@ -37,7 +37,7 @@ const SOURCE_CARDS = [
     winner = false;
     render();
   }
-  
+  // Handle Choice Function //
   function handleChoice(evt) {
     const cardIdx = parseInt(evt.target.id);
     const card = cards[cardIdx];
@@ -54,7 +54,7 @@ const SOURCE_CARDS = [
       } else {
         ignoreClick = true;
         badGuessCount++;
-        // hack/cludge
+        // hack/cludge SHOULD FIX!!!!//
         card.matched = true;
         setTimeout(function() {
           ignoreClick = false;
@@ -68,7 +68,7 @@ const SOURCE_CARDS = [
     }
     render();
   }
-  
+  //Shuffle Function//
   function buildShuffledCards() {
     const tempCards = [];
     cards = [];
@@ -81,7 +81,7 @@ const SOURCE_CARDS = [
       cards.push(rndCard);
     }
   }
-  
+  //Render Function//
   function render() {
     cards.forEach(function(card, idx) {
       const src = card.matched || selectedCard === card ? card.img : CARD_BACK; 

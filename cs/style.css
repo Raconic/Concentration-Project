@@ -5,15 +5,18 @@
   body {
     height: 100vmin;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: seagreen;
+    margin-bottom: 0;
+    margin-top: 10vmin;
   }
   
   main {
     display: grid;
-    grid-template-columns: repeat(4, 15vmin);
-    grid-template-rows: repeat(4, 15vmin);
+    grid-template-columns: repeat(4, 17vmin);
+    grid-template-rows: repeat(4, 17vmin);
     gap: 2vmin;
   }
   
@@ -22,6 +25,5 @@
     border-radius: 3vmin;
   }
 
-  header {
-    text-align: center;
-  }
+  
+
