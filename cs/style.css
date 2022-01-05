@@ -18,7 +18,7 @@
     display: grid;
     grid-template-columns: repeat(4, 17vmin);
     grid-template-rows: repeat(4, 17vmin);
-    gap: 2vmin;
+    gap: 3vmin;
   }
   
   img {
@@ -45,7 +45,7 @@
     margin-top: 4vmin;
     padding: 2vmin;
     font-size: 2vmin;
-    border-radius: 4vmin;
+    border-radius: 1vmin;
     background-color: darkred;
   }
   

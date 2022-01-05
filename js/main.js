@@ -11,6 +11,8 @@ const SOURCE_CARDS = [
   ];
   const CARD_BACK = 'https://i.imgur.com/5OgVgAe.png'; 
   const DISPLAY_CARD_TIME = 1000;
+  const startingMinutes = .50;
+  
   
   /*----- app's state (variables) -----*/
   let cards;  // array of source cards X 2, shuffled
@@ -18,11 +20,15 @@ const SOURCE_CARDS = [
   let badGuessCount;
   let ignoreClick;
   let winner;
+  let time = startingMinutes * 60;
+  
   
   /*----- cached element references -----*/
   const cardImgEls = document.querySelectorAll('main > img');
   const badCountEl = document.querySelector('h3');
   const btnEl = document.querySelector('button');
+  const countdownEl = document.getElementById('time-remaining');
+  setInterval(updateCountdown, 1000);
   /*----- event listeners -----*/
   document.querySelector('main').addEventListener('click', handleChoice);
   btnEl.addEventListener('click', init);
@@ -39,6 +45,18 @@ const SOURCE_CARDS = [
     winner = false;
     render();
   }
+  // Timer Function //
+  function updateCountdown() {
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    seconds = seconds < 1 ? '' + seconds : seconds;
+    countdownEl.innerHTML = `${minutes}: ${seconds}`;
+    time--;
+    time = time < 0 ? 0 : time; 
+
+  }
+
+
   // Handle Choice Function //
   function handleChoice(evt) {
     const cardIdx = parseInt(evt.target.id);
