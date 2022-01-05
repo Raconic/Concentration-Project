@@ -88,8 +88,8 @@ const SOURCE_CARDS = [
       cardImgEls[idx].src = src;
     });
     if (winner) {
-      badCountEl.innerHTML = 'You Win!';
+      badCountEl.innerHTML = 'YOU SAVED US!!!!';
     } else {
-      badCountEl.innerHTML = `Bad Count: ${badGuessCount}`;
+      badCountEl.innerHTML = `MOVES: ${badGuessCount}`;
     }
   }

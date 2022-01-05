@@ -27,12 +27,14 @@
   }
 
   header {
+    color: gold;
     font-size: 50px;
     margin-top: 0;
     margin-bottom: -3vmin;
   }
 
   h2 {
+    color: darkred;
     margin-top: 4vmin;
     margin-bottom: -3vmin;
   }
