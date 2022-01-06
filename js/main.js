@@ -11,7 +11,7 @@ const SOURCE_CARDS = [
   ];
   const CARD_BACK = 'https://i.imgur.com/5OgVgAe.png'; 
   const DISPLAY_CARD_TIME = 1000;
-  let startingMinutes = .25;
+  let startingMinutes = .75;
   
   
   /*----- app's state (variables) -----*/
@@ -51,41 +51,28 @@ const SOURCE_CARDS = [
     render(); 
   }
   // Timer Function //
-//   function updateCountdown() {
-    // seconds = time % 60;
-    // seconds = seconds <= 1 ? '0' + seconds : seconds;
-    // countdownEl.innerHTML = `${seconds}`;
-    //  time--;
-    // if (seconds === '00' && !cards.every(card => card.matched)) loser = true;
-    // setTimeout( checkLoser , 4600);
-    // }
+
     function updateCountdown() {
-        // let count = 3;
-        // countdownEl.textContent = time;
-        // countdownEl.style.visibility = 'visible';
-        // countdownAudio.currentTime = 0;
-        // countdownAudio.play();
-        const timerId = setInterval(function () {
-            seconds = time % 60;
-            
-            //seconds = seconds <= 1 ? '0' + seconds : seconds;
-            countdownEl.innerHTML = `${seconds}`;
-            time--;
-            // if (time = time < 0 ? 0 : time);
-            setTimeout( checkLoser , 1600);
+        
+    const timerId = setInterval(function () {
+    seconds = time % 60;
+    countdownEl.innerHTML = `${seconds}`;
+    time--;
+    setTimeout( checkLoser , 4500);
     if (time < 0) {
-        // clearInterval(timerId);
+
     countdownEl.innerHTML = '0';
-    // cb();
+
   } 
   
 }, 1000);
  }
   
   function checkLoser() {
-    
-    loser = time === 0 && !cards.every(card => card.matched);
+    loser = time <= 0 && !cards.every(card => card.matched);
    if (loser) badCountEl.innerHTML = `KABOOM!!!`; 
+   ignoreClick === true;
+   btnEl.style.visibility = loser ? 'visible' : 'hidden';
   }
   
 
