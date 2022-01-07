@@ -1,57 +1,79 @@
+
 * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Anton', sans-serif;
-    height: 100vmin;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: seagreen;
-    margin-bottom: 0;
-    margin-top: 10vmin;
-  }
-  
-  main {
-    display: grid;
-    grid-template-columns: repeat(4, 17vmin);
-    grid-template-rows: repeat(4, 17vmin);
-    gap: 3vmin;
-  }
-  
-  img {
-    width: 100%;
-    border-radius: 3vmin;
-  }
+  box-sizing: border-box;
+}
 
-  header {
-    color: gold;
-    font-size: 50px;
-    margin-top: 0;
-    margin-bottom: -4vmin;
-  }
+body {
+  font-family: 'Anton', sans-serif;
+  height: 100vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: seagreen;
+  margin-bottom: 0;
+  margin-top: 5vmin;
+}
 
-  h2 {
-    color: darkred;
-    margin-top: 4vmin;
-    margin-bottom: -3vmin;
-  }
+main {
+  display: grid;
+  grid-template-columns: repeat(4, 17vmin);
+  grid-template-rows: repeat(4, 17vmin);
+  gap: 3vmin;
+}
 
-  button {
-    color: gold;
-    font-family: 'Anton', sans-serif;
-    margin-top: 4vmin;
-    padding: 2vmin;
-    font-size: 2vmin;
-    border-radius: 1vmin;
-    background-color: darkred;
-  }
-  
-  button:hover {
-    background-color: darkgrey;
-    color: white;
-  }
+.overlay-text {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  color: gold;
+  font-family: 'Anton', sans-serif;
+  background-color: black;
+}
 
-  
+
+
+img {
+  width: 100%;
+  border-radius: 3vmin;
+}
+
+header {
+  color: gold;
+  font-size: 50px;
+  margin-top: 0;
+  margin-bottom: -4vmin;
+}
+
+h2 {
+  color: darkred;
+  margin-top: 3vmin;
+  margin-bottom: -3vmin;
+}
+
+button {
+  color: gold;
+  font-family: 'Anton', sans-serif;
+  margin-top: 4vmin;
+  padding: 2vmin;
+  font-size: 2vmin;
+  border-radius: 2vmin;
+  background-color: darkred;
+  font-size: 30px;
+}
+
+button:hover {
+  background-color: darkgrey;
+  color: white;
+}
+
+img:hover {
+  transform: scale(1.1);
+transition: transform 150ms ease-in;
+}
