@@ -53,13 +53,12 @@ const SOURCE_CARDS = [
   function doCountdown() {
     let count = 60;
     countdownEl.textContent = count;
-    // countdownEl.style.visibility = 'visible';
     // countdownAudio.currentTime = 0;
     // countdownAudio.play();
    let interval = setInterval(function () {
       count--;
       countdownEl.textContent = count;
-      if (count === 0){
+      if (count === 0 || winner || loser){
         clearInterval(interval);
       }
     }, 1000);
@@ -71,7 +70,6 @@ const SOURCE_CARDS = [
   function checkLoser() {
     loser = count === 0 && !cards.every(card => card.matched);
    if (loser) badCountEl.innerHTML = `KABOOM!!!`;
-   ignoreClick = false; 
   }
   
 
@@ -126,11 +124,15 @@ const SOURCE_CARDS = [
       const src = card.matched || selectedCard === card ? card.img : CARD_BACK; 
       cardImgEls[idx].src = src;
     });
-    badCountEl.innerHTML = `MOVES: ${badGuessCount}`;
+    
   
     if (winner) {
       badCountEl.innerHTML = 'YOU SAVED US!!!!';
-    } 
+    } else if (loser) {
+      badCountEl.innerHTML = `KABOOM!!!`;
+    } else {
+      badCountEl.innerHTML = `MOVES: ${badGuessCount}`;
+    }
     
     
   }
