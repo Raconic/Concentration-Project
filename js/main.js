@@ -11,7 +11,7 @@ const SOURCE_CARDS = [
   ];
   const CARD_BACK = 'https://i.imgur.com/5OgVgAe.png'; 
   const DISPLAY_CARD_TIME = 1000;
-  // let startingMinutes = .75;
+
   
   
   /*----- app's state (variables) -----*/
@@ -55,7 +55,7 @@ const SOURCE_CARDS = [
   }
 
   function doCountdown() {
-    let count = 5;
+    let count = 60;
     countdownEl.textContent = count;
     // countdownAudio.currentTime = 0;
     // countdownAudio.play();
@@ -127,9 +127,9 @@ const SOURCE_CARDS = [
     
   
     if (winner) {
-      badCountEl.innerHTML = 'YOU SAVED US!!!!';
+      badCountEl.innerHTML = 'BOMBS DEFUSED!';
     } else {
-      badCountEl.innerHTML = `MOVES: ${badGuessCount}`;
+      badCountEl.innerHTML = `ATTEMPTS: ${badGuessCount}`;
     }
     
     
