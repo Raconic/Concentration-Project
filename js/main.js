@@ -11,7 +11,9 @@ const SOURCE_CARDS = [
   ];
   const CARD_BACK = 'https://i.imgur.com/5OgVgAe.png'; 
   const DISPLAY_CARD_TIME = 1000;
-
+  
+  
+  
   
   
   /*----- app's state (variables) -----*/
@@ -57,8 +59,6 @@ const SOURCE_CARDS = [
   function doCountdown() {
     let count = 60;
     countdownEl.textContent = count;
-    // countdownAudio.currentTime = 0;
-    // countdownAudio.play();
    let interval = setInterval(function () {
       count--;
       countdownEl.textContent = count;
