@@ -11,7 +11,7 @@ const SOURCE_CARDS = [
   ];
   const CARD_BACK = 'https://i.imgur.com/5OgVgAe.png'; 
   const DISPLAY_CARD_TIME = 1000;
-  let startingMinutes = .75;
+  // let startingMinutes = .75;
   
   
   /*----- app's state (variables) -----*/
@@ -20,9 +20,8 @@ const SOURCE_CARDS = [
   let badGuessCount;
   let ignoreClick;
   let winner;
-  let time;
-  let seconds;
   let loser;
+  
   
   
   /*----- cached element references -----*/
@@ -41,38 +40,38 @@ const SOURCE_CARDS = [
   // Initialize Function //
   function init() {
     buildShuffledCards();
-    updateCountdown();
+    doCountdown();
     selectedCard = null;
     badGuessCount = 0;
     ignoreClick = false;
     winner = false;
     loser = false;
-    time = startingMinutes * 60;
     render(); 
   }
   // Timer Function //
 
-    function updateCountdown() {
-        
-    const timerId = setInterval(function () {
-    seconds = time % 60;
-    countdownEl.innerHTML = `${seconds}`;
-    time--;
-    setTimeout( checkLoser , 4500);
-    if (time < 0) {
-
-    countdownEl.innerHTML = '0';
-
-  } 
+  function doCountdown() {
+    let count = 60;
+    countdownEl.textContent = count;
+    // countdownEl.style.visibility = 'visible';
+    // countdownAudio.currentTime = 0;
+    // countdownAudio.play();
+   let interval = setInterval(function () {
+      count--;
+      countdownEl.textContent = count;
+      if (count === 0){
+        clearInterval(interval);
+      }
+    }, 1000);
+    
+  }
   
-}, 1000);
- }
   
+
   function checkLoser() {
-    loser = time <= 0 && !cards.every(card => card.matched);
-   if (loser) badCountEl.innerHTML = `KABOOM!!!`; 
-   ignoreClick === true;
-   btnEl.style.visibility = loser ? 'visible' : 'hidden';
+    loser = count === 0 && !cards.every(card => card.matched);
+   if (loser) badCountEl.innerHTML = `KABOOM!!!`;
+   ignoreClick = false; 
   }
   
 
@@ -122,7 +121,7 @@ const SOURCE_CARDS = [
   }
   //Render Function//
   function render() {
-    btnEl.style.visibility = winner ? 'visible' : 'hidden';
+    btnEl.style.visibility = winner || loser ? 'visible' : 'hidden';
     cards.forEach(function(card, idx) {
       const src = card.matched || selectedCard === card ? card.img : CARD_BACK; 
       cardImgEls[idx].src = src;
