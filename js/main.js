@@ -50,28 +50,28 @@ const SOURCE_CARDS = [
   }
   // Timer Function //
 
+  function checkLoser() {
+    badCountEl.innerHTML = `KABOOM!!!`;
+    ignoreClick = true;
+  }
+
   function doCountdown() {
-    let count = 60;
+    let count = 5;
     countdownEl.textContent = count;
     // countdownAudio.currentTime = 0;
     // countdownAudio.play();
    let interval = setInterval(function () {
       count--;
       countdownEl.textContent = count;
-      if (count === 0 || winner || loser){
+      if (count === 0 || winner){
         clearInterval(interval);
+      }
+      if (count === 0) {
+        checkLoser();
       }
     }, 1000);
     
   }
-  
-  
-
-  function checkLoser() {
-    loser = count === 0 && !cards.every(card => card.matched);
-   if (loser) badCountEl.innerHTML = `KABOOM!!!`;
-  }
-  
 
   // Handle Choice Function //
   function handleChoice(evt) {
@@ -119,17 +119,16 @@ const SOURCE_CARDS = [
   }
   //Render Function//
   function render() {
-    btnEl.style.visibility = winner || loser ? 'visible' : 'hidden';
+    btnEl.style.visibility = winner ? 'visible' : 'hidden';
     cards.forEach(function(card, idx) {
       const src = card.matched || selectedCard === card ? card.img : CARD_BACK; 
       cardImgEls[idx].src = src;
+    
     });
     
   
     if (winner) {
       badCountEl.innerHTML = 'YOU SAVED US!!!!';
-    } else if (loser) {
-      badCountEl.innerHTML = `KABOOM!!!`;
     } else {
       badCountEl.innerHTML = `MOVES: ${badGuessCount}`;
     }
