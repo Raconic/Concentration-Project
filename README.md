@@ -7,4 +7,4 @@ Screenshots: https://i.imgur.com/zQMWzIY.png https://i.imgur.com/1WZzGDT.png
 
 Technologies Used: JavaScript, HTML, CSS
 
-Link: https://raconic.github.io/Concentration-Project/
+[Click to Play My Game!] https://raconic.github.io/Concentration-Project/
