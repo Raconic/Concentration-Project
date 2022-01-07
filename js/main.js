@@ -20,7 +20,6 @@ const SOURCE_CARDS = [
   let badGuessCount;
   let ignoreClick;
   let winner;
-  let loser;
   
   
   
@@ -45,7 +44,6 @@ const SOURCE_CARDS = [
     badGuessCount = 0;
     ignoreClick = false;
     winner = false;
-    loser = false;
     render(); 
   }
   // Timer Function //
@@ -53,6 +51,7 @@ const SOURCE_CARDS = [
   function checkLoser() {
     badCountEl.innerHTML = `KABOOM!!!`;
     ignoreClick = true;
+    btnEl.style.visibility =  'visible';
   }
 
   function doCountdown() {
